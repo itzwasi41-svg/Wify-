@@ -1,1 +1,7 @@
-# Wify-
+import { useState } from "react"; import { motion } from "framer-motion"; import { Button } from "@/components/ui/button";
+
+export default function BirthdayLoveStory() { const [step, setStep] = useState(0);
+
+const paragraphs = [ "Meri zindagi ka sabse khoobsurat din wo tha jab tum meri zindagi ka hissa bani... ❤️", "Tumhari muskaan meri rooh ki tasalli hai, aur tumhari baatein meri duniya ka sukoon... ✨", "Jab tum pass hoti ho to har gham door hojata hai, tum meri duaon ka sabse khoobsurat jawaab ho... 💫", "Meri har saans tumse judi hai, aur meri har dhadkan tumhara naam leti hai... 💕", "Tum meri roshni ho, meri umeed ho, meri mohabbat ka sabse haseen paighaam ho... 🌸", "Har lamha tumhari yaadon ka sahara hai, aur tum meri mohabbat ka sabse gehra rang ho... 🌹", "Kabhi kabhi gile shikwe bhi hote hain, lekin dil ki gehraiyon me sirf tum ho aur tum hi rahogi... 🌙", "Meri zindagi ke har safar ka humsafar tum ho, aur meri har dua tumse judi hai... ✨", "Tum meri rooh ki tasveer ho, meri khwahish ka jawab ho, aur meri mohabbat ki manzil ho... ❤️", "Aaj ke din sirf yeh kehna hai: meri khushi tumse hai, meri duniya tum ho, aur mera pyaar beinteha sirf tumse hai... 🎉❤️", ];
+
+return ( <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-200 to-purple-300 p-6 text-center"> {step === 0 ? ( <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="space-y-6" > <h1 classNam
