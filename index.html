@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aestar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      background: #ff4b5c;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      animation: bounce 1.5s infinite;
+    }
+    .gift-box:before, .gift-box:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+    }
+    .gift-box:before {
+      width: 20px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .gift-box:after {
+      height: 20px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .card {
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      max-width: 90%;
+      display: none;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff4b5c;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e63946;
+    }
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.8);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Aestar 🎉</h1>
+  <div class="gift-box" onclick="showParagraph()"></div>
+
+  <div class="card" id="card">
+    <p id="para"></p>
+    <button onclick="nextParagraph()" id="nextBtn">Next ➡️</button>
+  </div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const paragraphs = [
+      "Tum meri zindagi ka sabse khoobsurat hissa ho. 💖",
+      "Jab se tum meri life may ayi ho sab kuch roshan ho gaya hai. 🌟",
+      "Tum meri duaon ka sabse pyara inaam ho. 🙏",
+      "Meri khushi tumhari muskaan may chhupi hai. 😊",
+      "Tum meri rooh ka sukoon ho, mera pyaar ho. ❤️",
+      "Har din tumhari yaadon se shuru hota hai aur tum par khatam. 🌙",
+      "Mujhe tumhari aankhon may apni duniya nazar aati hai. 👀",
+      "Tum meri dhadkanon ka geet ho. 🎶",
+      "Tum meri kahani ka sabse khoobsurat chapter ho. 📖",
+      "Main hamesha tumse beinteha mohabbat karta rahun ga. 💞"
+    ];
+
+    let index = 0;
+    function showParagraph() {
+      document.querySelector('.card').style.display = 'block';
+      document.getElementById('para').innerText = paragraphs[index];
+    }
+
+    function nextParagraph() {
+      index++;
+      if(index < paragraphs.length){
+        document.getElementById('para').innerText = paragraphs[index];
+      } else {
+        document.getElementById('para').innerText = "🎂 Happy Birthday once again, Aestar! Tum meri hamesha ki mohabbat ho. 💝";
+        document.getElementById('nextBtn').style.display = 'none';
+      }
+    }
+
+    // Floating hearts generator
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 6000);
+    }, 800);
+  </script>
+</body>
+</html>
